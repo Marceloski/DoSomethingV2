@@ -1,0 +1,212 @@
+[gd_scene load_steps=17 format=3 uid="uid://bciljy3o2i441"]
+
+[ext_resource type="Texture2D" uid="uid://cq5tb3yb2j307" path="res://Oficina/sketch1704247249518.png" id="1_2407r"]
+[ext_resource type="Texture2D" uid="uid://cr1thl56jcmdn" path="res://Oficina/sketch1704247207412.png" id="2_4s4x8"]
+[ext_resource type="Texture2D" uid="uid://bv7pne2y3yx41" path="res://Oficina/sketch1704247267231.png" id="3_g02g1"]
+[ext_resource type="Texture2D" uid="uid://io7oluntmmhs" path="res://Oficina/sketch1709818535556.png" id="4_gcxql"]
+[ext_resource type="Texture2D" uid="uid://vtmq7ynwlvay" path="res://Oficina/sketch1704247296150.png" id="5_21r55"]
+[ext_resource type="Texture2D" uid="uid://dxat2wxjy24t5" path="res://Oficina/sketch1704247345325.png" id="6_d7mgt"]
+[ext_resource type="Texture2D" uid="uid://dfyo8tp3jro4" path="res://sketch1710816424286.png" id="7_p180t"]
+[ext_resource type="Texture2D" uid="uid://cp5esvm6yjs4a" path="res://Nuevo/Nuevo/Oficina/Marcadores.png" id="8_nerb2"]
+[ext_resource type="Texture2D" uid="uid://btmkg2cctfu6j" path="res://Oficina/sketch1704247405312.png" id="9_7tfyn"]
+[ext_resource type="Texture2D" uid="uid://cbqrqlphecpgb" path="res://Nuevo/moneda.png" id="9_7vgq6"]
+[ext_resource type="Texture2D" uid="uid://c1fcmdd0csy8t" path="res://Oficina/sketch1704247394680.png" id="10_rq2fd"]
+[ext_resource type="Texture2D" uid="uid://ctidibxtjiipj" path="res://Nuevo/empleados.png" id="10_tpcge"]
+[ext_resource type="Texture2D" uid="uid://db57v2mbphrp0" path="res://Oficina/png-transparent-arrow-show-turn-symbol-direction-right-next-characters-icons-indicator-removebg-preview.png" id="11_deja2"]
+[ext_resource type="Script" path="res://Scripts/Tutorial/Siguiente.gd" id="12_vw28y"]
+[ext_resource type="FontVariation" uid="uid://dr78wllg6dqjc" path="res://Portada/Dial1.tres" id="13_jcb85"]
+
+[sub_resource type="Theme" id="Theme_aflhn"]
+
+[node name="EscenaTutorial" type="Node2D"]
+
+[node name="Escenario" type="Node2D" parent="."]
+
+[node name="Celeste" type="Sprite2D" parent="Escenario"]
+position = Vector2(486, 330.331)
+scale = Vector2(0.312533, 0.522219)
+texture = ExtResource("1_2407r")
+
+[node name="Nubes" type="Sprite2D" parent="Escenario/Celeste"]
+position = Vector2(403.157, -117.443)
+scale = Vector2(1.21761, 0.771471)
+texture = ExtResource("2_4s4x8")
+
+[node name="FondoOficina" type="Sprite2D" parent="Escenario/Celeste"]
+position = Vector2(291.169, -10.2084)
+scale = Vector2(1.83981, 1.03405)
+texture = ExtResource("3_g02g1")
+
+[node name="Sanabanana" type="Sprite2D" parent="Escenario/Celeste/FondoOficina"]
+position = Vector2(367.876, 53.5385)
+scale = Vector2(0.496366, 0.510461)
+texture = ExtResource("4_gcxql")
+
+[node name="EscritorioySillaOficina" type="Sprite2D" parent="Escenario/Celeste/FondoOficina"]
+position = Vector2(55.2677, -31.3846)
+scale = Vector2(1.08808, 1.25692)
+texture = ExtResource("5_21r55")
+
+[node name="GatoOficina" type="Sprite2D" parent="Escenario/Celeste/FondoOficina/EscritorioySillaOficina"]
+position = Vector2(361.905, 45.5324)
+scale = Vector2(1.43828, 1.38422)
+texture = ExtResource("6_d7mgt")
+
+[node name="TextoNubes" type="Node2D" parent="."]
+
+[node name="NubeSecretaria" type="Sprite2D" parent="TextoNubes"]
+position = Vector2(484, 139)
+scale = Vector2(0.534385, 0.460833)
+texture = ExtResource("7_p180t")
+
+[node name="SusanaDialogo" type="Label" parent="TextoNubes/NubeSecretaria"]
+offset_left = -470.0
+offset_top = -159.0
+offset_right = 419.0
+offset_bottom = 186.0
+focus_mode = 2
+theme = SubResource("Theme_aflhn")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Esta es tu oficina, Nuevo jefe, soy tu secretaria sana banana y te contare las eventualidades que sucedan en la oficina. Por ejemplo aqui abajo tenemos El dinero, este sirve para comprar o pagar cosas de las situaciones."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Marcadores" type="Sprite2D" parent="TextoNubes/NubeSecretaria"]
+position = Vector2(177.307, 386.8)
+scale = Vector2(1.10267, 1.24503)
+texture = ExtResource("8_nerb2")
+
+[node name="LabelsStats" type="Node2D" parent="TextoNubes"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextoNubes/LabelsStats"]
+offset_left = 111.0
+offset_top = 503.0
+offset_right = 257.0
+offset_bottom = 633.0
+alignment = 1
+
+[node name="Dinero" type="Label" parent="TextoNubes/LabelsStats/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "$100
+"
+autowrap_mode = 2
+
+[node name="Moneda" type="Sprite2D" parent="TextoNubes/LabelsStats/VBoxContainer"]
+position = Vector2(-36, 27)
+scale = Vector2(0.141, 0.148)
+texture = ExtResource("9_7vgq6")
+
+[node name="Empleados" type="Label" parent="TextoNubes/LabelsStats/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "100"
+autowrap_mode = 2
+
+[node name="Empleados2" type="Sprite2D" parent="TextoNubes/LabelsStats"]
+position = Vector2(69, 590)
+scale = Vector2(0.1155, 0.127)
+texture = ExtResource("10_tpcge")
+
+[node name="Ganancias" type="Label" parent="TextoNubes/LabelsStats"]
+offset_left = 957.0
+offset_top = 129.0
+offset_right = 1083.0
+offset_bottom = 225.0
+rotation = -0.132645
+pivot_offset = Vector2(50, 50)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "$1000
+"
+autowrap_mode = 2
+
+[node name="Felicidad" type="Label" parent="TextoNubes/LabelsStats"]
+offset_left = 251.0
+offset_top = 572.0
+offset_right = 350.0
+offset_bottom = 639.0
+theme_override_font_sizes/font_size = 48
+
+[node name="HombreOficina" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(614, 330)
+scale = Vector2(0.617562, 0.629167)
+texture = ExtResource("9_7tfyn")
+
+[node name="MujerOficina" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(610, 323)
+scale = Vector2(0.60875, 0.6575)
+texture = ExtResource("10_rq2fd")
+
+[node name="Flechas" type="Node2D" parent="."]
+position = Vector2(237, 452)
+rotation = 2.46991
+scale = Vector2(0.27, 0.308)
+
+[node name="Flecha Icono" type="Sprite2D" parent="Flechas"]
+position = Vector2(-319.984, 390.666)
+rotation = 1.15687
+scale = Vector2(0.861681, 1.03521)
+skew = 0.0883461
+texture = ExtResource("11_deja2")
+
+[node name="Flecha Dialogo" type="Sprite2D" parent="Flechas"]
+position = Vector2(-1226.77, -311.596)
+rotation = 2.01413
+scale = Vector2(1.1105, 1.93654)
+skew = -0.0934349
+texture = ExtResource("11_deja2")
+
+[node name="Flecha Ganacia" type="Sprite2D" parent="Flechas"]
+position = Vector2(-2356.14, -725.371)
+rotation = -2.95462
+scale = Vector2(1.35592, 1.03283)
+skew = 0.0544069
+texture = ExtResource("11_deja2")
+
+[node name="Flecha Empleados" type="Sprite2D" parent="Flechas"]
+position = Vector2(39.7905, -200.395)
+rotation = 0.124357
+scale = Vector2(1.12852, 0.91293)
+skew = 0.0368943
+texture = ExtResource("11_deja2")
+
+[node name="Flecha dinero" type="Sprite2D" parent="Flechas"]
+texture = ExtResource("11_deja2")
+
+[node name="Siguiente" type="TextureButton" parent="."]
+offset_left = 927.0
+offset_top = 280.0
+offset_right = 1128.0
+offset_bottom = 356.0
+script = ExtResource("12_vw28y")
+
+[node name="Siguiente2" type="Sprite2D" parent="Siguiente"]
+position = Vector2(109, 35)
+scale = Vector2(0.2235, 0.227292)
+texture = ExtResource("7_p180t")
+
+[node name="Dial" type="Label" parent="Siguiente/Siguiente2"]
+offset_left = -473.0
+offset_top = -88.0
+offset_right = 398.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_jcb85")
+theme_override_font_sizes/font_size = 100
+text = "Siguiente"
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+
+[connection signal="mouse_entered" from="Siguiente" to="Siguiente" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Siguiente" to="Siguiente" method="_on_mouse_exited"]
+[connection signal="pressed" from="Siguiente" to="Siguiente" method="_on_pressed"]

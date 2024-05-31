@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://htjnphw2dxiu"]
+
+[ext_resource type="Script" path="res://panel_victoria.gd" id="1_m17jr"]
+[ext_resource type="Texture2D" uid="uid://dd5tc577611s7" path="res://Nuevo/Pantalla.png" id="2_musda"]
+[ext_resource type="Texture2D" uid="uid://cjk1maf4gn2oo" path="res://Nuevo/victoria.png" id="3_7t333"]
+
+[sub_resource type="Animation" id="Animation_3k0nr"]
+resource_name = "Bajada"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cuaderno")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cuaderno:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 650)]
+}
+
+[sub_resource type="Animation" id="Animation_m882p"]
+resource_name = "Victoria"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wv5oe"]
+_data = {
+"Bajada": SubResource("Animation_3k0nr"),
+"Victoria": SubResource("Animation_m882p")
+}
+
+[node name="PanelVictoria" type="Node2D"]
+script = ExtResource("1_m17jr")
+
+[node name="Cuaderno" type="Node2D" parent="."]
+position = Vector2(0, 650)
+
+[node name="Cuaderno" type="Sprite2D" parent="Cuaderno"]
+position = Vector2(566, -257)
+scale = Vector2(0.432552, 0.451389)
+texture = ExtResource("2_musda")
+
+[node name="Label" type="Label" parent="Cuaderno"]
+offset_left = 619.0
+offset_top = -427.0
+offset_right = 902.0
+offset_bottom = -355.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Has Surgido junto con tu Familia
+Y tu futuro esta claro y con exito"
+horizontal_alignment = 1
+
+[node name="Victoria" type="Sprite2D" parent="Cuaderno"]
+position = Vector2(769, -200.25)
+scale = Vector2(0.345477, 0.327454)
+texture = ExtResource("3_7t333")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wv5oe")
+}

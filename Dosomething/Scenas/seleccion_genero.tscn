@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0f38xdriyroh"]
+
+[ext_resource type="Texture2D" uid="uid://cm6v00h3emfo3" path="res://Instrucciones/INST/sketch1710815650928.png" id="1_625mw"]
+[ext_resource type="Script" path="res://Scripts/SeleccionGenero/BotonMujer.gd" id="2_pjy3c"]
+[ext_resource type="Texture2D" uid="uid://dbcya6cveeuj0" path="res://Instrucciones/INST/sketch1710815461823.png" id="2_q7v5x"]
+[ext_resource type="Texture2D" uid="uid://hcuvcngf3854" path="res://Instrucciones/INST/sketch1710815551539.png" id="3_bmxcd"]
+[ext_resource type="Texture2D" uid="uid://d0qmoi2m0s5b0" path="res://Instrucciones/INST/sketch1710816048923.png" id="4_3td8v"]
+[ext_resource type="Script" path="res://Scripts/SeleccionGenero/BotonHombre.gd" id="4_ve2lh"]
+[ext_resource type="Script" path="res://Scripts/SeleccionGenero/BotonJugar.gd" id="5_t1wt2"]
+[ext_resource type="Script" path="res://Scripts/SeleccionGenero/BotonAtras.gd" id="6_af015"]
+[ext_resource type="PackedScene" uid="uid://ddnxqev1n7im4" path="res://Scenas/transicion.tscn" id="9_uje60"]
+
+[node name="SeleccionGenero" type="Node2D"]
+
+[node name="FondoGenero" type="Sprite2D" parent="."]
+position = Vector2(576.5, 324)
+scale = Vector2(0.5755, 0.54)
+texture = ExtResource("1_625mw")
+
+[node name="Personajes" type="Node2D" parent="."]
+
+[node name="Mujer" type="TextureButton" parent="Personajes"]
+offset_left = 408.0
+offset_top = 218.0
+offset_right = 536.0
+offset_bottom = 510.0
+script = ExtResource("2_pjy3c")
+
+[node name="PersonajesM" type="Sprite2D" parent="Personajes/Mujer"]
+position = Vector2(-97, 142)
+scale = Vector2(0.507, 0.480417)
+texture = ExtResource("2_q7v5x")
+hframes = 2
+
+[node name="Hombre" type="TextureButton" parent="Personajes"]
+offset_left = 600.0
+offset_top = 218.0
+offset_right = 721.0
+offset_bottom = 522.0
+script = ExtResource("4_ve2lh")
+
+[node name="PersonajesH" type="Sprite2D" parent="Personajes/Hombre"]
+position = Vector2(218, 142)
+scale = Vector2(0.507, 0.480417)
+texture = ExtResource("2_q7v5x")
+hframes = 2
+frame = 1
+
+[node name="Elige" type="Sprite2D" parent="."]
+position = Vector2(580, 408)
+scale = Vector2(0.7315, 0.803333)
+texture = ExtResource("3_bmxcd")
+
+[node name="Botones" type="Node2D" parent="."]
+
+[node name="Intrucciones" type="TextureButton" parent="Botones"]
+offset_left = 32.0
+offset_top = 504.0
+offset_right = 206.0
+offset_bottom = 594.0
+script = ExtResource("6_af015")
+
+[node name="BotonesAtras" type="Sprite2D" parent="Botones/Intrucciones"]
+position = Vector2(271, 366)
+scale = Vector2(0.564875, 0.661667)
+texture = ExtResource("4_3td8v")
+hframes = 2
+
+[node name="BOTONATRAS" type="Node" parent="Botones/Intrucciones"]
+
+[node name="JugarButon" type="TextureButton" parent="Botones"]
+offset_left = 900.0
+offset_top = 493.0
+offset_right = 1106.0
+offset_bottom = 592.0
+script = ExtResource("5_t1wt2")
+
+[node name="BotonesJugar" type="Sprite2D" parent="Botones/JugarButon"]
+position = Vector2(-74, 379)
+scale = Vector2(0.564875, 0.661667)
+texture = ExtResource("4_3td8v")
+hframes = 2
+frame = 1
+
+[node name="Transicion" parent="." instance=ExtResource("9_uje60")]
+position = Vector2(-39, -27)
+escenauno = "res://Scenas/comic.tscn"
+escenados = "res://Scenas/menu.tscn"
+
+[connection signal="mouse_entered" from="Personajes/Mujer" to="Personajes/Mujer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Personajes/Mujer" to="Personajes/Mujer" method="_on_mouse_exited"]
+[connection signal="pressed" from="Personajes/Mujer" to="Personajes/Mujer" method="_on_pressed"]
+[connection signal="pressed" from="Personajes/Mujer" to="Personajes/Hombre" method="_on_mujer_pressed"]
+[connection signal="pressed" from="Personajes/Mujer" to="Botones/JugarButon" method="_on_mujer_pressed"]
+[connection signal="mouse_entered" from="Personajes/Hombre" to="Personajes/Hombre" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Personajes/Hombre" to="Personajes/Hombre" method="_on_mouse_exited"]
+[connection signal="pressed" from="Personajes/Hombre" to="Personajes/Mujer" method="_on_hombre_pressed"]
+[connection signal="pressed" from="Personajes/Hombre" to="Personajes/Hombre" method="_on_pressed"]
+[connection signal="pressed" from="Personajes/Hombre" to="Botones/JugarButon" method="_on_hombre_pressed"]
+[connection signal="mouse_entered" from="Botones/Intrucciones" to="Botones/Intrucciones" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Botones/Intrucciones" to="Botones/Intrucciones" method="_on_mouse_exited"]
+[connection signal="playdos" from="Botones/Intrucciones" to="Botones/JugarButon" method="_on_intrucciones_playdos"]
+[connection signal="playdos" from="Botones/Intrucciones" to="Transicion" method="_on_intrucciones_playdos"]
+[connection signal="pressed" from="Botones/Intrucciones" to="Botones/Intrucciones" method="_on_pressed"]
+[connection signal="mouse_entered" from="Botones/JugarButon" to="Botones/JugarButon" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Botones/JugarButon" to="Botones/JugarButon" method="_on_mouse_exited"]
+[connection signal="play" from="Botones/JugarButon" to="Transicion" method="_on_jugar_buton_play"]
+[connection signal="playdos" from="Botones/JugarButon" to="Transicion" method="_on_jugar_buton_playdos"]
+[connection signal="pressed" from="Botones/JugarButon" to="Botones/JugarButon" method="_on_pressed"]

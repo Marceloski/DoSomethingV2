@@ -1,0 +1,344 @@
+[gd_scene load_steps=24 format=3 uid="uid://hqvgjt5dvnxk"]
+
+[ext_resource type="Script" path="res://Scripts/Oficina/Main_oficina.gd" id="1_mpcls"]
+[ext_resource type="Texture2D" uid="uid://cq5tb3yb2j307" path="res://Oficina/sketch1704247249518.png" id="1_s6cfn"]
+[ext_resource type="PackedScene" uid="uid://htjnphw2dxiu" path="res://panel_victoria.tscn" id="2_s301m"]
+[ext_resource type="Texture2D" uid="uid://cr1thl56jcmdn" path="res://Oficina/sketch1704247207412.png" id="2_swbc6"]
+[ext_resource type="Texture2D" uid="uid://bv7pne2y3yx41" path="res://Oficina/sketch1704247267231.png" id="3_iic8y"]
+[ext_resource type="Texture2D" uid="uid://io7oluntmmhs" path="res://Oficina/sketch1709818535556.png" id="4_aa3jp"]
+[ext_resource type="Texture2D" uid="uid://vtmq7ynwlvay" path="res://Oficina/sketch1704247296150.png" id="5_tx1kb"]
+[ext_resource type="Texture2D" uid="uid://dxat2wxjy24t5" path="res://Oficina/sketch1704247345325.png" id="6_wmusr"]
+[ext_resource type="Texture2D" uid="uid://bgbk0wwcbqtd3" path="res://sketch1704247364469.png" id="7_xbh5d"]
+[ext_resource type="Script" path="res://Scripts/Oficina/DialogosManager.gd" id="8_1ex3s"]
+[ext_resource type="Texture2D" uid="uid://dfyo8tp3jro4" path="res://sketch1710816424286.png" id="8_cbr7l"]
+[ext_resource type="FontVariation" uid="uid://dr78wllg6dqjc" path="res://Portada/Dial1.tres" id="9_u445o"]
+[ext_resource type="Texture2D" uid="uid://btmkg2cctfu6j" path="res://Oficina/sketch1704247405312.png" id="11_dip8i"]
+[ext_resource type="Texture2D" uid="uid://cbqrqlphecpgb" path="res://Nuevo/moneda.png" id="11_h1vis"]
+[ext_resource type="Script" path="res://Scripts/Oficina/BotonSiguiente.gd" id="11_yh0m2"]
+[ext_resource type="Texture2D" uid="uid://ctidibxtjiipj" path="res://Nuevo/empleados.png" id="12_tofco"]
+[ext_resource type="Texture2D" uid="uid://c1fcmdd0csy8t" path="res://Oficina/sketch1704247394680.png" id="12_xl3qu"]
+[ext_resource type="Texture2D" uid="uid://db57v2mbphrp0" path="res://Oficina/png-transparent-arrow-show-turn-symbol-direction-right-next-characters-icons-indicator-removebg-preview.png" id="13_4toi3"]
+[ext_resource type="Script" path="res://Scripts/Oficina/OficinaBoton.gd" id="13_xjcbt"]
+[ext_resource type="Texture2D" uid="uid://b2obb4n2as2ct" path="res://Nuevo/felicidad 3.png" id="13_y0has"]
+[ext_resource type="Script" path="res://Scripts/Tutorial/OpcionB.gd" id="14_hsj65"]
+[ext_resource type="Script" path="res://Scripts/Tutorial/OpcionC.gd" id="15_pasgw"]
+
+[sub_resource type="Theme" id="Theme_drdcr"]
+
+[node name="EscenaOficina" type="Node2D"]
+script = ExtResource("1_mpcls")
+
+[node name="PanelVictoria" parent="." instance=ExtResource("2_s301m")]
+
+[node name="Escenario" type="Node2D" parent="."]
+
+[node name="Celeste" type="Sprite2D" parent="Escenario"]
+position = Vector2(486, 330.331)
+scale = Vector2(0.312533, 0.522219)
+texture = ExtResource("1_s6cfn")
+
+[node name="Nubes" type="Sprite2D" parent="Escenario/Celeste"]
+position = Vector2(403.157, -117.443)
+scale = Vector2(1.21761, 0.771471)
+texture = ExtResource("2_swbc6")
+
+[node name="FondoOficina" type="Sprite2D" parent="Escenario/Celeste"]
+position = Vector2(291.169, -10.2084)
+scale = Vector2(1.83981, 1.03405)
+texture = ExtResource("3_iic8y")
+
+[node name="Sanabanana" type="Sprite2D" parent="Escenario/Celeste/FondoOficina"]
+position = Vector2(367.876, 53.5385)
+scale = Vector2(0.496366, 0.510461)
+texture = ExtResource("4_aa3jp")
+
+[node name="EscritorioySillaOficina" type="Sprite2D" parent="Escenario/Celeste/FondoOficina"]
+position = Vector2(55.2677, -31.3846)
+scale = Vector2(1.08808, 1.25692)
+texture = ExtResource("5_tx1kb")
+
+[node name="GatoOficina" type="Sprite2D" parent="Escenario/Celeste/FondoOficina/EscritorioySillaOficina"]
+position = Vector2(361.905, 45.5324)
+scale = Vector2(1.43828, 1.38422)
+texture = ExtResource("6_wmusr")
+
+[node name="TextoNubes" type="Node2D" parent="."]
+script = ExtResource("8_1ex3s")
+
+[node name="NubeSecretaria" type="Sprite2D" parent="TextoNubes"]
+position = Vector2(484, 139)
+scale = Vector2(0.534385, 0.460833)
+texture = ExtResource("8_cbr7l")
+
+[node name="SusanaDialogo" type="Label" parent="TextoNubes/NubeSecretaria"]
+offset_left = -470.0
+offset_top = -159.0
+offset_right = 419.0
+offset_bottom = 186.0
+focus_mode = 2
+theme = SubResource("Theme_drdcr")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Esta es tu oficina, Nuevo jefe, soy tu secretaria sana banana y te contare las eventualidades que sucedan en la oficina. Por ejemplo aqui abajo tenemos El dinero, este sirve para comprar o pagar cosas de las situaciones."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Consecuencia" type="Sprite2D" parent="TextoNubes"]
+position = Vector2(484, 139)
+scale = Vector2(0.534385, 0.460833)
+texture = ExtResource("8_cbr7l")
+
+[node name="ConsecuenciaDialogo" type="Label" parent="TextoNubes/Consecuencia"]
+offset_left = -470.0
+offset_top = -159.0
+offset_right = 419.0
+offset_bottom = 186.0
+focus_mode = 2
+theme = SubResource("Theme_drdcr")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Marcadores" type="Sprite2D" parent="TextoNubes"]
+position = Vector2(582, 324)
+scale = Vector2(0.5875, 0.558333)
+texture = ExtResource("7_xbh5d")
+
+[node name="LabelsStats" type="Node2D" parent="TextoNubes"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextoNubes/LabelsStats"]
+offset_left = 104.0
+offset_top = 502.0
+offset_right = 250.0
+offset_bottom = 632.0
+alignment = 1
+
+[node name="Moneda" type="Sprite2D" parent="TextoNubes/LabelsStats/VBoxContainer"]
+position = Vector2(-34, 95)
+scale = Vector2(0.102, 0.118)
+texture = ExtResource("11_h1vis")
+
+[node name="Dinero" type="Label" parent="TextoNubes/LabelsStats/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "10"
+autowrap_mode = 2
+
+[node name="Empleados" type="Label" parent="TextoNubes/LabelsStats/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "$100"
+autowrap_mode = 2
+
+[node name="Empleados2" type="Sprite2D" parent="TextoNubes/LabelsStats/VBoxContainer"]
+position = Vector2(-35, 28)
+scale = Vector2(0.10575, 0.1035)
+texture = ExtResource("12_tofco")
+
+[node name="Ganancias" type="Label" parent="TextoNubes/LabelsStats"]
+offset_left = 956.0
+offset_top = 107.0
+offset_right = 1082.0
+offset_bottom = 203.0
+rotation = -0.132645
+pivot_offset = Vector2(50, 50)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "$1000
+"
+autowrap_mode = 2
+
+[node name="Felicidad" type="Label" parent="TextoNubes/LabelsStats"]
+offset_left = 251.0
+offset_top = 572.0
+offset_right = 350.0
+offset_bottom = 639.0
+theme_override_font_sizes/font_size = 48
+
+[node name="Felicidad3" type="Sprite2D" parent="TextoNubes/LabelsStats"]
+position = Vector2(297, 602.5)
+scale = Vector2(0.128, 0.142)
+texture = ExtResource("13_y0has")
+
+[node name="Siguiente" type="TextureButton" parent="."]
+offset_left = 924.0
+offset_top = 218.0
+offset_right = 1125.0
+offset_bottom = 294.0
+script = ExtResource("11_yh0m2")
+
+[node name="Siguiente" type="Sprite2D" parent="Siguiente"]
+position = Vector2(115, 67)
+scale = Vector2(0.2235, 0.227292)
+texture = ExtResource("8_cbr7l")
+
+[node name="Dial" type="Label" parent="Siguiente/Siguiente"]
+offset_left = -473.0
+offset_top = -88.0
+offset_right = 398.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_u445o")
+theme_override_font_sizes/font_size = 100
+text = "Siguiente"
+horizontal_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+
+[node name="Botones" type="Node2D" parent="."]
+
+[node name="OpcionA" type="TextureButton" parent="Botones"]
+offset_left = 917.0
+offset_top = 347.0
+offset_right = 1141.0
+offset_bottom = 430.0
+script = ExtResource("13_xjcbt")
+
+[node name="Opcion A" type="Sprite2D" parent="Botones/OpcionA"]
+position = Vector2(119, 39)
+scale = Vector2(0.243263, 0.237656)
+texture = ExtResource("8_cbr7l")
+metadata/_edit_group_ = true
+
+[node name="Dial" type="Label" parent="Botones/OpcionA/Opcion A"]
+offset_left = -453.29
+offset_top = -161.061
+offset_right = 417.71
+offset_bottom = 153.939
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_u445o")
+theme_override_font_sizes/font_size = 60
+text = "Opcion A"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="OpcionB" type="TextureButton" parent="Botones"]
+offset_left = 910.0
+offset_top = 445.0
+offset_right = 1140.0
+offset_bottom = 541.0
+script = ExtResource("14_hsj65")
+
+[node name="Opcion B" type="Sprite2D" parent="Botones/OpcionB"]
+position = Vector2(123, 45)
+scale = Vector2(0.249763, 0.255156)
+texture = ExtResource("8_cbr7l")
+metadata/_edit_group_ = true
+
+[node name="Dial" type="Label" parent="Botones/OpcionB/Opcion B"]
+offset_left = -469.799
+offset_top = -162.786
+offset_right = 401.201
+offset_bottom = 152.214
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_u445o")
+theme_override_font_sizes/font_size = 60
+text = "Opcion B"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="OpcionC" type="TextureButton" parent="Botones"]
+offset_left = 906.0
+offset_top = 549.0
+offset_right = 1143.0
+offset_bottom = 646.0
+script = ExtResource("15_pasgw")
+
+[node name="Opcion C" type="Sprite2D" parent="Botones/OpcionC"]
+position = Vector2(126, 46)
+scale = Vector2(0.250763, 0.250156)
+texture = ExtResource("8_cbr7l")
+metadata/_edit_group_ = true
+
+[node name="Dial" type="Label" parent="Botones/OpcionC/Opcion C"]
+offset_left = -469.799
+offset_top = -162.786
+offset_right = 401.201
+offset_bottom = 152.214
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_u445o")
+theme_override_font_sizes/font_size = 60
+text = "Opcion C"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="HombreOficina" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(614, 330)
+scale = Vector2(0.617562, 0.629167)
+texture = ExtResource("11_dip8i")
+
+[node name="MujerOficina" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(610, 323)
+scale = Vector2(0.60875, 0.6575)
+texture = ExtResource("12_xl3qu")
+
+[node name="Flechas" type="Node2D" parent="."]
+visible = false
+position = Vector2(237, 452)
+rotation = 2.46991
+scale = Vector2(0.27, 0.308)
+
+[node name="Flecha Icono" type="Sprite2D" parent="Flechas"]
+position = Vector2(-141.376, 594.146)
+rotation = 1.15687
+scale = Vector2(0.861681, 1.03521)
+skew = 0.0883461
+texture = ExtResource("13_4toi3")
+
+[node name="Flecha Dialogo" type="Sprite2D" parent="Flechas"]
+position = Vector2(-1226.77, -311.596)
+rotation = 2.01413
+scale = Vector2(1.1105, 1.93654)
+skew = -0.0934349
+texture = ExtResource("13_4toi3")
+
+[node name="Flecha Ganacia" type="Sprite2D" parent="Flechas"]
+position = Vector2(-2356.14, -725.371)
+rotation = -2.95462
+scale = Vector2(1.35592, 1.03283)
+skew = 0.0544069
+texture = ExtResource("13_4toi3")
+
+[node name="Flecha Empleados" type="Sprite2D" parent="Flechas"]
+position = Vector2(39.7905, -200.395)
+rotation = 0.124357
+scale = Vector2(1.12852, 0.91293)
+skew = 0.0368943
+texture = ExtResource("13_4toi3")
+
+[node name="Flecha dinero" type="Sprite2D" parent="Flechas"]
+texture = ExtResource("13_4toi3")
+
+[connection signal="mouse_entered" from="Siguiente" to="Siguiente" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Siguiente" to="Siguiente" method="_on_mouse_exited"]
+[connection signal="pressed" from="Siguiente" to="TextoNubes" method="_on_siguiente_pressed"]
+[connection signal="mouse_entered" from="Botones/OpcionA" to="Botones/OpcionA" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Botones/OpcionA" to="Botones/OpcionA" method="_on_mouse_exited"]
+[connection signal="pressed" from="Botones/OpcionA" to="TextoNubes" method="_on_opcion_a_pressed"]
+[connection signal="mouse_entered" from="Botones/OpcionB" to="Botones/OpcionB" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Botones/OpcionB" to="Botones/OpcionB" method="_on_mouse_exited"]
+[connection signal="pressed" from="Botones/OpcionB" to="TextoNubes" method="_on_opcion_b_pressed"]
+[connection signal="mouse_entered" from="Botones/OpcionC" to="Botones/OpcionC" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Botones/OpcionC" to="Botones/OpcionC" method="_on_mouse_exited"]
+[connection signal="pressed" from="Botones/OpcionC" to="TextoNubes" method="_on_opcion_c_pressed"]

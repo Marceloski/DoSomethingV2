@@ -1,0 +1,6 @@
+[gd_resource type="JSON" format=3 uid="uid://ckslqie2qffsu"]
+
+[resource]
+data = {
+"Susana": ["Bienvenido como estas ?", "Necesitas algo ?"]
+}

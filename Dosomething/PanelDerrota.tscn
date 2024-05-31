@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnblb7cn4ktby"]
+
+[ext_resource type="Texture2D" uid="uid://dd5tc577611s7" path="res://Nuevo/Pantalla.png" id="1_a1gt2"]
+[ext_resource type="Texture2D" uid="uid://b3vltnq21c76b" path="res://Nuevo/derrota.png" id="2_6op6x"]
+
+[sub_resource type="Animation" id="Animation_sp3dh"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 620)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gwsta"]
+_data = {
+"Bajada": SubResource("Animation_sp3dh")
+}
+
+[node name="Panel_Derrota" type="Node2D"]
+position = Vector2(0, 620)
+
+[node name="CuadernoDerrota" type="Node2D" parent="."]
+
+[node name="Pantalla" type="Sprite2D" parent="CuadernoDerrota"]
+position = Vector2(554, -276)
+scale = Vector2(0.431771, 0.428704)
+texture = ExtResource("1_a1gt2")
+
+[node name="Derrota" type="Sprite2D" parent="CuadernoDerrota"]
+position = Vector2(759, -203)
+scale = Vector2(0.400126, 0.305215)
+texture = ExtResource("2_6op6x")
+
+[node name="Label" type="Label" parent="CuadernoDerrota"]
+offset_left = 622.0
+offset_top = -430.0
+offset_right = 735.0
+offset_bottom = -378.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Tu y tu familia no pudieron aguantar
+tendran que buscarse un nuevo trabajo"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gwsta")
+}

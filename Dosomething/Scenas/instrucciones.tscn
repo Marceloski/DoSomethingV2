@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8xitcjuulwyv"]
+
+[ext_resource type="Texture2D" uid="uid://cm6v00h3emfo3" path="res://Instrucciones/INST/sketch1710815650928.png" id="1_gjpgk"]
+[ext_resource type="Texture2D" uid="uid://ga5vjry4t6qp" path="res://Oficina/sketch1710816424286.png" id="2_1sbxo"]
+[ext_resource type="Texture2D" uid="uid://cbgnbdvlb8we4" path="res://Instrucciones/INST/sketch1710815526106.png" id="3_ubr6w"]
+[ext_resource type="Texture2D" uid="uid://bmjguj6afncgk" path="res://Instrucciones/INST/sketch1710815575288.png" id="4_umy53"]
+[ext_resource type="Script" path="res://Scripts/Instrucciones/BotonAtras.gd" id="5_laeky"]
+[ext_resource type="Texture2D" uid="uid://d0qmoi2m0s5b0" path="res://Instrucciones/INST/sketch1710816048923.png" id="6_htngu"]
+[ext_resource type="Script" path="res://Scripts/Instrucciones/BotonJugar.gd" id="7_160x7"]
+[ext_resource type="PackedScene" uid="uid://ddnxqev1n7im4" path="res://Scenas/transicion.tscn" id="8_uxqng"]
+
+[node name="Instrucciones" type="Node2D"]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(576, 325)
+scale = Vector2(0.576, 0.541667)
+texture = ExtResource("1_gjpgk")
+
+[node name="UsaMouse" type="Sprite2D" parent="Fondo"]
+position = Vector2(-569.554, -100)
+scale = Vector2(0.713036, 0.87037)
+texture = ExtResource("2_1sbxo")
+
+[node name="Texto" type="Sprite2D" parent="Fondo/UsaMouse"]
+position = Vector2(142.332, -55.3192)
+scale = Vector2(0.96503, 0.778813)
+texture = ExtResource("3_ubr6w")
+
+[node name="Tusdes" type="Sprite2D" parent="Fondo"]
+position = Vector2(378.828, -124.074)
+scale = Vector2(0.845582, 0.766204)
+texture = ExtResource("4_umy53")
+
+[node name="Instrucciones" type="TextureButton" parent="."]
+offset_left = 58.864
+offset_top = 494.94
+offset_right = 214.864
+offset_bottom = 577.94
+script = ExtResource("5_laeky")
+
+[node name="BotonesAtras" type="Sprite2D" parent="Instrucciones"]
+position = Vector2(274.136, 371.06)
+scale = Vector2(0.564875, 0.661667)
+texture = ExtResource("6_htngu")
+hframes = 2
+
+[node name="BOTON DE ATRAS" type="Node" parent="Instrucciones"]
+
+[node name="JugarButon" type="TextureButton" parent="."]
+offset_left = 924.0
+offset_top = 496.0
+offset_right = 1119.0
+offset_bottom = 577.0
+script = ExtResource("7_160x7")
+
+[node name="BotonesJugar" type="Sprite2D" parent="JugarButon"]
+position = Vector2(-77.0001, 368)
+scale = Vector2(0.564875, 0.661667)
+texture = ExtResource("6_htngu")
+hframes = 2
+frame = 1
+
+[node name="Transicion" parent="." instance=ExtResource("8_uxqng")]
+position = Vector2(-42, -28)
+escenauno = "res://Scenas/seleccion_genero.tscn"
+escenados = "res://Scenas/menu.tscn"
+
+[connection signal="mouse_entered" from="Instrucciones" to="Instrucciones" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Instrucciones" to="Instrucciones" method="_on_mouse_exited"]
+[connection signal="playdos" from="Instrucciones" to="Transicion" method="_on_instrucciones_playdos"]
+[connection signal="pressed" from="Instrucciones" to="Instrucciones" method="_on_pressed"]
+[connection signal="mouse_entered" from="JugarButon" to="JugarButon" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="JugarButon" to="JugarButon" method="_on_mouse_exited"]
+[connection signal="play" from="JugarButon" to="Transicion" method="_on_jugar_buton_play"]
+[connection signal="pressed" from="JugarButon" to="JugarButon" method="_on_pressed"]
